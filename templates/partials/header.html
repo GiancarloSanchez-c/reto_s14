@@ -1,0 +1,59 @@
+{%load static %}
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container ">
+        <img src="{% static 'static/images/logo-dark.svg' %}" class="logo-brand" alt="logo">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <img src="{% static 'static/images/menu.svg'  %}">
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'menu' %}">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'app:autos_products' %}">Modelos</a>
+                </li>
+                {% if perms.app.view_products%}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'app:autos_list' %}">Listado de Productos</a>
+                </li>
+                {%endif%}
+                {% if perms.app.add_products%}
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">Crear Modelos</a>
+                </li>
+                {%endif%}
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacto</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">
+                        Bienvenido, {{ user.username }}<img
+                            style='margin-left: 20px; width:39px; height:39px; border-radius:100%'
+                            src="{% static 'static/images/faces/1.jpg' %}">
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">
+                        Cerrar Sesion
+                    </a>
+                </li>
+                {%else%}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">
+                        <i class="icon-mid bi bi-person me-2"></i>Iniciar Sesion
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Cerrar Sesion</a>
+                </li>
+                {%endif%}
+            </ul>
+        </div>
+    </div>
+</nav>

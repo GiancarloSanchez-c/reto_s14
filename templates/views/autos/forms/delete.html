@@ -1,0 +1,23 @@
+{% extends 'layouts/main_create_auto.html'%}
+{%include 'utils/_messages.html'%}
+{% block content %}
+{% load static%}
+    {% include 'partials/header.html'%}
+    <div class="page-heading">
+        <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data" style='text-align:center;'>
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <h2>
+                        ¿Deseas eliminar este modelo ? 
+                        </h2><br>
+                        <button class='btn btn-primary' type="submit" href="{% url 'app:autos_list' %}">Eliminar</button>
+                        <a class='btn btn-primary' href='{% url 'app:autos_list' %}'>Regresar</a>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock  %}

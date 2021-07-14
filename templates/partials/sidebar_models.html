@@ -1,0 +1,29 @@
+{% load static %}
+<div id="app">
+        <div id="sidebar" class="active">
+            <div class="sidebar-wrapper active ps ps--active-y">
+                <div class="sidebar-header">
+                    <div class="d-flex justify-content-between">
+                        <div class="logo">
+                            <a href="{% url 'app:menu'%}"><img src="{% static 'static/images/logo-dark.svg' %}" style='width:230px; height:200px;'></a>
+                        </div>
+                        <div class="toggler">
+                            <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-menu">
+                    <ul class="menu">
+                        <li class="sidebar-title">Menu</li>
+
+                        <li class="sidebar-item  ">
+                            <a href="index.html" class="sidebar-link" sytle='color:#000;'>
+                                <i class="bi bi-grid-fill"></i>
+                                <span sytle='color:#000;'>Lista de autos</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+            <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 937px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 477px;"></div></div></div>
+    </div>

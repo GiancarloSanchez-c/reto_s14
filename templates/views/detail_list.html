@@ -1,0 +1,80 @@
+{% extends 'layouts/main_models_products.html'%}
+{% block content_details %}
+<table class="table" style='margin-top:150px; text-align: center;'>
+    
+    <thead class='thead-dark'>
+        <tr>
+            <th scope="col">Tipo</th>
+            <th scope="col">Caracteristicas</th>
+        </tr>
+    </thead>
+    
+    <thead >
+        {% for auto in autos %}
+            <tr class='thead-dark'>
+                <th scope="col">#</th>
+                <th scope="col">{{ auto.id }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Marca</th>
+                <th scope="col">{{ auto.marca }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Modelo</th>
+                <th scope="col">{{ auto.modelo }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Color</th>
+                <th scope="col">{{ auto.color }}</th>
+            </tr>
+            <tr>
+                <th scope="col">Tipo de Vehiculo</th>
+                <th scope="col">{{auto.tipo_vehiculo}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Tipo de Caja</th>
+                <th scope="col">{{auto.tipo_caja}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Aire Acondicionado</th>
+                <th scope="col">{{auto.aire_acondicionado}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Alza Vidrios</th>
+                <th scope="col">{{auto.alzavidrios}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Direccion Hidraulica</th>
+                <th scope="col">{{auto.direccion_hidraulica}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Cierra Puertas</th>
+                <th scope="col">{{auto.cierre_puerta}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Transmisión de auto</th>
+                <th scope="col">{{auto.tranmision_auto}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Espejos</th>
+                <th scope="col">{{auto.espejos}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Airbagas</th>
+                <th scope="col">{{auto.airbagas}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Radio</th>
+                <th scope="col">{{auto.radio}}</th>
+            </tr>
+        {%endfor%}
+    </thead>
+</table>
+
+<br>
+<br>
+<a style="margin-left:45em; margin-top:120px" class=" btn-lg btn-dark rounded-pill"
+    href="{% url 'app:autos_list' %}">Volver</a>
+<br>
+<br>
+{% endblock %}

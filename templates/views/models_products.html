@@ -1,0 +1,33 @@
+{% extends "layouts/main_models_products.html"%}
+{% load static %}
+{% load humanize %}
+{%block content %}
+    <main>
+        <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 my-4 mx-auto text-center">
+            <h1 class="display-4 mt-4">Lista de Productos</h1>
+        </div>
+        {% for auto in autos %}
+        <div class="container" id="lista-productos">
+            <div class="card-deck mb-3 text-center">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-bold">{{ auto.marca | capfirst }}</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ auto.image.url }}" style='width:300px, height:50px; !important' class="card-image">
+                        <h1 class="card-title pricing-card-title precio">S/. <span class="">{{ auto.precio  | intcomma }}</span></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li></li>
+                            <li>Modelo: {{ auto.modelo }}</li>
+                            <li>Año: {{ auto.año }}</li>
+                            <li>Color: {{ auto.color }}</li>
+                            <li>Tipo de Combustible: {{ auto.tipo_combustible }}</li>
+                        </ul>
+                        <a href="{% url 'app:detail_list' auto.id %}" class="btn btn-primary" >Mas detalles</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </main>
+{%endblock%}
